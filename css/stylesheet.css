@@ -1,0 +1,66 @@
+/* 웹폰트 */
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+
+body * {
+  -webkit-tap-highlight-color: rgba(255, 255, 200, 0.3);
+  tap-highlight-color: rgba(255, 255, 200, 0.3);
+}
+html {
+  font-size: 10px; /** rem, em 편한 계산을 위해 root의 폰트크기를 10px로 지정 */
+}
+body {
+  font-size: 1.6rem;
+  font-family: "Spoqa Han Sans Neo", "sans-serif";
+  color: #181818;
+  background: #fff;
+  margin: 0;
+}
+a {
+  color: inherit; /** anchor 태그의 색은 상속되도록 설정*/
+  text-decoration: none; /** anchor 태그의 기본 데코레이션을 삭제 */
+}
+a img {
+  vertical-align: middle; /** img 요소를 텍스트 요소의 라인 속에서 정렬 */
+  /* vertical-align 속성은 오로지 inline과 table-cell 요소에만 적용된다. */
+}
+
+/*! 공통 클래스*/
+/** list 요소에 기본적으로 적용되어 있는 margin, paddingm list-style 초기화*/
+.reset-list {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+/** button 요소에 기본적으로 적용되어 있는 border를 초기화하고 마우스 커서를 가져다댔을 때*/
+.button {
+  cursor: pointer;
+  border: none;
+}
+
+/** aria에서 읽어줘야해서 존재하나 보이지 않는 상태로 바꿔준다.*/
+.a11y-hidden {
+  overflow: hidden; /** 작게 만든 공간 밖으로 내용이 나가지 못하게 하기 위해 */
+  position: absolute !important; /** top 속성을 위해 반드시 absoulte여야 해서*/
+  top: -9999em; /** 위치를 화면 밖으로 아예 빼버리기 위해 */
+  clip: rect(0, 0, 0, 0); /** 모든 모서리를 왼쪽 위로 보내 점으로 자른 것*/
+  width: 1px; /** width, height가 0이면 aria가 없는 요소로 판단하고 안 읽어주기때문*/
+  height: 1px;
+  margin: -1px; /** 혹시 모르니 음수 marigin으로  왼쪽으로 1px, 위로 1px 위치를 이동시켜준다.*/
+}
+
+/** ::seletion을 사용하면, 드래그할 때 색을 바꿀 수 있다. */
+::selection {
+  background: #233d84; /** 드래그 시 배경은 파란색 */
+  color: #ffffff; /** 드래그 시 글자색은 하얀색 */
+}
+
+/*! 반응형 미디어 */
+/* 반응형 웹에서 img 태그는 높이와 너비를 특정 수치로 한정하지 않는다. 
+일반적으로 width가 늘어나면 height는 비율에 맞게 자동으로 조절되도록한다.
+그래서 너비엔 max-width 속성으로 100%를
+높이에는 auto 값을 준다. */
+.respons {
+  max-width: 100%; /* 너비가 원래 이미지의 너비보다 커지지 않도록 하기 위해 max-width를 사용한다.*/
+  height: auto;
+}
