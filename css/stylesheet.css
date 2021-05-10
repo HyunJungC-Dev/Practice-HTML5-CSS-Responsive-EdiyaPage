@@ -195,7 +195,7 @@ a img {
   }
   .brand img {
     padding: 10px;
-    /* width: 140px; */
+    width: inherit; /* brand a 만큼의 width를 가지도록 한다. 즉, width: 140px; */
   }
   .is-open-menu,
   .is-close-menu {
